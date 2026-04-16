@@ -1,0 +1,11 @@
+;; Indentation
+(defvar indentation-level 3)
+(setq-default tab-width indentation-level)
+(setq-default indent-tabs-mode nil)
+(setq-default c-basic-offset indentation-level)
+(setq rust-indent-unit indentation-level)
+(setq lisp-indent-offset indentation-level)
+(setq markdown-list-indent-width indentation-level)
+(setq evil-shift-width indentation-level)
+(setq electric-indent-inhibit t)
+(electric-pair-mode 1)
