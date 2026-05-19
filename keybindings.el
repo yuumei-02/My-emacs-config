@@ -1,6 +1,7 @@
 ;; Functions
 (defun reload-config() (interactive)
    (load-file user-init-file))
+
 (defun insert-copyright-info()
    "Insert copyright"
    (interactive) (insert "// Copyright (c) 2026 <YOUR-NAME>. All Rights Reserved.\n// See the license file for more information."))
@@ -34,6 +35,8 @@
 (define-key evil-normal-state-map (kbd "SPC") 'leader-prefix)
 (define-prefix-command 'plex-prefix)
 (define-key evil-normal-state-map (kbd "C-a") 'plex-prefix)
+(define-prefix-command 'visual-leader-prefix)
+(define-key evil-visual-state-map (kbd "SPC") 'visual-leader-prefix)
 
 ;; Leader binds
 (define-key 'leader-prefix (kbd "f f") 'find-file)
@@ -46,6 +49,8 @@
 (define-key 'leader-prefix (kbd "g a") 'magit-stage-files)
 (define-key 'leader-prefix (kbd "TAB") 'magit-section-toggle)
 (define-key 'leader-prefix (kbd "b") 'ido-switch-buffer)
+(define-key 'leader-prefix (kbd "x") 'execute-extended-command)
+(define-key 'visual-leader-prefix (kbd "x") 'execute-extended-command)
 
 ;; Plex binds
 (define-key 'plex-prefix (kbd "x") 'delete-window)
@@ -65,6 +70,8 @@
 (define-key evil-normal-state-map (kbd "M-<up>") 'drag-stuff-up)
 (define-key evil-normal-state-map (kbd "C-s") 'save-buffer)
 (define-key evil-normal-state-map (kbd ";") 'execute-extended-command)
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-normal-state-map (kbd "C-d") 'evil-scroll-down)
 
 ;; Insert-mode binds
 (define-key evil-insert-state-map (kbd "C-h") 'evil-backward-char)
@@ -74,6 +81,12 @@
 (define-key evil-insert-state-map (kbd "C-v") 'yank)
 (define-key evil-insert-state-map (kbd "TAB") (lambda () (interactive) (insert "   ")))
 (define-key evil-insert-state-map [backtab] 'evil-shift-left-line)
+(define-key evil-insert-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-insert-state-map (kbd "C-d") 'evil-scroll-down)
+
+;; Visual-mode binds
+(define-key evil-visual-state-map (kbd "C-j") 'drag-stuff-down)
+(define-key evil-visual-state-map (kbd "C-k") 'drag-stuff-up)
 
 ;; Miscellaneous
 (evil-ex-define-cmd "q[uit]" 'kill-current-buffer)

@@ -20,8 +20,8 @@
 ;; Dashboard
 (require 'dashboard)
 (with-eval-after-load 'dashboard
-   (setq dashboard-banner-logo-title "今晩は、ユーメイ")
-   (setq dashboard-startup-banner "~/Wallpapers/saku.png")
+   (setq dashboard-banner-logo-title "Zhyivannye, <YOUR-NAME>. Donska o?")
+   (setq dashboard-startup-banner "~/Wallpapers/pfp.jpg")
    (setq dashboard-image-banner-max-width 200)
    (setq dashboard-image-banner-max-height 200)
    (setq dashboard-center-content t)
@@ -29,8 +29,10 @@
    (dashboard-setup-startup-hook))
 
 ;; Color theme
-(add-to-list 'default-frame-alist '(alpha-background . 50))
-(load-theme 'tokyonight-night :no-confirm)
+(add-to-list 'default-frame-alist '(alpha-background . 75))
+(custom-set-faces
+   '(default ((t (:background "#080808")))))
+(load-theme 'gruber-darker :no-confirm)
 
 ;; Font
 (set-frame-font "jetbrainsmono" nil t)
